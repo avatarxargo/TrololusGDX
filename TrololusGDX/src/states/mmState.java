@@ -38,9 +38,13 @@ public class mmState implements Screen{
 	
 	//model props
 		private DirectionalLight Dlight;
+		private Lights lights;
+		
 		private Model environment;
 		private ModelInstance environmentInstance;
-		private Lights lights;
+		
+		private Model behemot;
+		private ModelInstance behemotInstance;
 
 	public mmState(Core daddy)
 	{
@@ -66,6 +70,12 @@ public class mmState implements Screen{
         environmentInstance.transform.rotate(-1f,0f,0f,90f);
         environmentInstance.transform.scale(2, 2, 2);
         
+        behemot = loader.loadModel(Gdx.files.internal("Model/behemot/behemot.obj"));
+        behemotInstance = new ModelInstance(behemot);
+        behemotInstance.transform.rotate(-1f,0f,0,90f);
+        behemotInstance.transform.translate(-3, -5, 1.5f);
+        behemotInstance.transform.rotate(0f,0f,1,135f);
+        
         lights = new Lights();
         lights.ambientLight.set(3.4f, 3.4f, 3.4f, 3f);
         Dlight = new DirectionalLight();
@@ -89,6 +99,7 @@ public class mmState implements Screen{
         
 		Mbatch.begin(camera3);
     		Mbatch.render(environmentInstance, lights);	
+    		Mbatch.render(behemotInstance, lights);
     	Mbatch.end();			
 	}
 
