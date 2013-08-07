@@ -22,6 +22,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import components.MenuSystem;
 
 public class loadState implements Screen{
 	//generic stuff
@@ -33,7 +34,7 @@ public class loadState implements Screen{
 	private Texture texture; //texture for LoaderImage and ProgressBar
 	private Sprite LoaderImage; //image shown while loading
 	private Sprite ProgressBarBG; //...
-	//private Sprite ProgressBarBAR; //...
+	private Sprite ProgressBarBAR; //...
 	
 	//variables MISC
 	private int ProgressBarW = 400; //for modulable bar width.
@@ -76,8 +77,8 @@ public class loadState implements Screen{
 		ProgressBarBG.setBounds((Gdx.graphics.getWidth()-ProgressBarW)/2,50,ProgressBarW,50);
 		
 		//define ProgressBarBAR
-		//ProgressBarBAR = new Sprite( new TextureRegion(texture, 0, 824, 700, 100) );
-		//ProgressBarBAR.setBounds((Gdx.graphics.getWidth()-ProgressBarW)/2,50,ProgressBarW,50);
+		ProgressBarBAR = new Sprite( new TextureRegion(texture, 0, 824, 700, 100) );
+		ProgressBarBAR.setBounds((Gdx.graphics.getWidth()-ProgressBarW)/2,50,ProgressBarW,50);
 	}
 	
 	@Override
@@ -107,7 +108,6 @@ public class loadState implements Screen{
 		
 			LoaderImage.draw(batch);
 			ProgressBarBG.draw(batch);
-			//ProgressBarBAR.draw(batch);
 			
 			if(!loaded)
 			{
@@ -118,6 +118,7 @@ public class loadState implements Screen{
 					infoFont.draw(batch, "starting...................", Gdx.graphics.getWidth()/2-185, 150);
 				} else {
 					infoFont.draw(batch, "Press any key to continue.", Gdx.graphics.getWidth()/2-185, 150);
+					ProgressBarBAR.draw(batch);
 					if(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))
 					{
 						System.out.println("\npressed\n");
