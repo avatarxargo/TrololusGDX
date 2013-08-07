@@ -117,7 +117,7 @@ public class loadState implements Screen{
 				{
 					infoFont.draw(batch, "starting...................", Gdx.graphics.getWidth()/2-185, 150);
 				} else {
-					infoFont.draw(batch, "Press spacebar to continue.", Gdx.graphics.getWidth()/2-185, 150);
+					infoFont.draw(batch, "Press any key to continue.", Gdx.graphics.getWidth()/2-185, 150);
 					if(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))
 					{
 						System.out.println("\npressed\n");
