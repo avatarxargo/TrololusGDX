@@ -13,10 +13,10 @@ public class MenuSystem {
 	private TextureRegion ButtonSheet;
 	
 	private int Bdimensions = 250; //how many square pixels does one button in ButtonSheet take up.
-	private int BXoff = 48; //how much is the 1st button shifted in X.
+	private int BXoff = 43; //how much is the 1st button shifted in X.
 	private int BYoff = -50; //how much is the 1st button shifted in Y.
 	
-	private float intervalX = 142; //distance between two menuitems in X.
+	private float intervalX = 143; //distance between two menuitems in X.
 	private float intervalY = 0; //distance between two menuitems in Y.
 	
 	private int size; // size = 0; means empty!!!!!
@@ -32,16 +32,16 @@ public class MenuSystem {
 	{
 		this.size = size;
 		menuPos = 0;
+		ButtonSheet = xButtonSheet;
 		for(int i=0; i<size;i++)
 		{
-			Items.add(new MenuItem());
+			Items.add(new MenuItem(new Sprite(ButtonSheet.split(Bdimensions, Bdimensions)[0][i]), new Sprite(ButtonSheet.split(Bdimensions, Bdimensions)[1][i]), new Sprite(ButtonSheet.split(Bdimensions, Bdimensions)[2][i])));
 		}
 		Items.get(menuPos).setMode(1);
 		Items.get(menuPos).setG(0, 35);
 		
 		MenuBar = new Sprite(xMenuBar);
 		MenuBar.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getWidth()*(238f/2000f));
-		ButtonSheet = xButtonSheet;
 	}
 	
 	//when the selection should go down a level.
@@ -79,8 +79,7 @@ public class MenuSystem {
 		{
 			MenuItem store = Items.get(i);
 			store.update();
-			Sprite helper = new Sprite(ButtonSheet.split(Bdimensions, Bdimensions)[store.mode][i]);
-			helper.setScale(0.6f);
+			Sprite helper = store.getArt();
 			helper.setPosition(BXoff + (intervalX*i), BYoff + store.y);
 			helper.draw(output);
 		}

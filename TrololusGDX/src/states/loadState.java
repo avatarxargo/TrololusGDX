@@ -134,6 +134,9 @@ public class loadState implements Screen{
 		if(drawn)
 		{
 			Core.casheState(1);
+			//Thread mmStateL = new mmStateLoadThread();
+			//mmStateL.start();
+			//this.
 			loaded = true;
 		}
 		drawn = true;

@@ -3,7 +3,13 @@
  */
 package components;
 
+import java.util.ArrayList;
+
+import com.badlogic.gdx.graphics.g2d.Sprite;
+
 public class MenuItem {
+	
+	private ArrayList<Sprite> art = new ArrayList<Sprite>(); //holds sprites for render
 	
 	public int mode; //0 = normal, 1 = selected, 2 = dark
 	
@@ -15,6 +21,15 @@ public class MenuItem {
 	
 	public float tenancity = 5;
 	
+	public MenuItem(Sprite normal, Sprite highlight, Sprite dark)
+	{
+	normal.setScale(0.6f);
+	highlight.setScale(0.6f);
+	dark.setScale(0.6f);
+	art.add(normal);
+	art.add(highlight);
+	art.add(dark);
+	}
 	//get fresher coordinates
 	public void update()
 	{
@@ -40,5 +55,10 @@ public class MenuItem {
 	public void setMode(int mode)
 	{
 		this.mode = mode;
+	}
+	
+	public Sprite getArt()
+	{
+		return art.get(mode);
 	}
 }

@@ -27,9 +27,14 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
+import com.badlogic.gdx.graphics.g3d.Shader;
 import com.badlogic.gdx.graphics.g3d.lights.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.lights.Lights;
 import com.badlogic.gdx.graphics.g3d.loader.ObjLoader;
+import com.badlogic.gdx.graphics.g3d.shaders.DefaultShader;
+import com.badlogic.gdx.graphics.g3d.utils.DefaultTextureBinder;
+import com.badlogic.gdx.graphics.g3d.utils.RenderContext;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.Vector3;
 import components.MenuSystem;
 
@@ -60,6 +65,10 @@ public class mmState implements Screen{
 		
 		private Texture MenuTexture;
 		private Sprite MenuBar;
+		
+	//bonus art
+		   public Shader shader;
+		   public RenderContext renderContext;
 		
 	//MainMenu
 	private MenuSystem MainMenuBar;
@@ -110,6 +119,13 @@ public class mmState implements Screen{
         Dlight = new DirectionalLight();
         Dlight.set(18f, 18f, 18f, new Vector3(-41f,-16f,-30f));
         lights.add(Dlight);
+        
+        //Shader
+       // renderContext = new RenderContext(new DefaultTextureBinder(DefaultTextureBinder.WEIGHTED, 1));
+        //shader = new DefaultShader(renderable.material, 
+         //       renderable.mesh.getVertexAttributes(), 
+       //    true, false, 1, 0, 0, 0);
+     //   shader.init();
         
         //MainMenu
         MainMenuBar = new MenuSystem(7,new TextureRegion(MenuTexture, 0, 1810, 2000, 238),new TextureRegion(MenuTexture,0,0,1750,750));
