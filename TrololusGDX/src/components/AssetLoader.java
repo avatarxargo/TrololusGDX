@@ -6,6 +6,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.loaders.ModelLoader;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.loader.ObjLoader;
 
@@ -32,17 +34,16 @@ public class AssetLoader {
 
 	// ..actual loading
 	static Sprite loadUpSprite(String path) {
-		Sprite sprite = null;
+		int size = 512;
+		Sprite sprite = new Sprite(new TextureRegion(new Texture(Gdx.files.internal(path)),0,0,size,size));
 		// load
-
 		return sprite;
 
 	}
 
 	static Sound loadUpSound(String path) {
-		Sound sound = null;
+		Sound sound = Gdx.audio.newSound(Gdx.files.internal(path));
 		// load
-
 		return sound;
 
 	}
