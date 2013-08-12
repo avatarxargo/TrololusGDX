@@ -11,9 +11,9 @@ public class mmTestPage extends mmPage{
 	private TextureRegion img;
 	private int fade = 0;
 	
-	public mmTestPage(int val)
+	public mmTestPage(int val, Texture feed)
 	{
-		img = new TextureRegion(new Texture(Gdx.files.internal("Splash/mm_art.png")),val*200,1000,400,400);
+		img = new TextureRegion(feed,val*200,1000,400,400);
 	}
 	
 	public void update(boolean status)
