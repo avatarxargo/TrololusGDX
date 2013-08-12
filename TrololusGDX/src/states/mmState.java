@@ -11,6 +11,7 @@
  */
 package states;
 
+import mmPages.mmTestPage;
 import trollface.Core;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -82,6 +83,7 @@ public class mmState implements Screen{
 	private void create()
 	{
 		//menu UI texture
+		
 		MenuTexture = new Texture(Gdx.files.internal("Splash/mm_art.png"));
 		MenuTexture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		MenuBar = new Sprite( new TextureRegion(MenuTexture, 0, 1810, 2000, 238) );
@@ -129,6 +131,10 @@ public class mmState implements Screen{
         
         //MainMenu
         MainMenuBar = new MenuSystem(7,new TextureRegion(MenuTexture, 0, 1810, 2000, 238),new TextureRegion(MenuTexture,0,0,1750,750));
+        MainMenuBar.addPage(new mmTestPage(0)); //adds a displayable page for slot1.
+        MainMenuBar.addPage(new mmTestPage(1));
+        MainMenuBar.addPage(new mmTestPage(2));
+        MainMenuBar.addPage(new mmTestPage(0));
 	}
 	
 	@Override

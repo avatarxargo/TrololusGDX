@@ -1,3 +1,7 @@
+/*
+ * currently not used
+ */
+
 package states;
 
 public class mmStateLoadThread extends Thread{
