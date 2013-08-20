@@ -109,7 +109,7 @@ public class mmState implements Screen{
         environmentInstance.transform.scale(2, 2, 2);
         
         //behemot
-        behemot = loader.loadModel(Gdx.files.internal("Model/behemot/behemot.obj"));
+        behemot = loader.loadModel(Gdx.files.internal("Model/behemotLR/behemotLR.obj"));
         behemotInstance = new ModelInstance(behemot);
         behemotInstance.transform.rotate(-1f,0f,0,90f);
         behemotInstance.transform.translate(-3, -5, 1.5f);
